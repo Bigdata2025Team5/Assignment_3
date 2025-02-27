@@ -13,14 +13,14 @@ Last Updated: 6/11/2024
 --USE SCHEMA {{env}}_SCHEMA;
 
 CREATE OR REPLACE NOTEBOOK IDENTIFIER('"CO2_DB"."{{env}}_SCHEMA"."{{env}}_data_ingestion"')
-    FROM '@"CO2_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/"{{branch}}"/notebooks/'
+    FROM '@"CO2_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/main/notebooks/'
     QUERY_WAREHOUSE = 'CO2_WH'
     MAIN_FILE = 'data_ingestion.ipynb';
 
 ALTER NOTEBOOK "CO2_DB"."{{env}}_SCHEMA"."{{env}}_data_ingestion" ADD LIVE VERSION FROM LAST;
 
 CREATE OR REPLACE NOTEBOOK IDENTIFIER('"CO2_DB"."{{env}}_SCHEMA"."{{env}}_daily_updates"')
-    FROM '@"CO2_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/"{{branch}}"/notebooks/'
+    FROM '@"CO2_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/main/notebooks/'
     QUERY_WAREHOUSE = 'CO2_WH'
     MAIN_FILE = 'daily_updates.ipynb';
 
