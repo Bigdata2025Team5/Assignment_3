@@ -1,0 +1,6 @@
+snowflake-snowpark-python
+
+pandas
+
+numpy
+ 
