@@ -80,7 +80,6 @@ jobs:
 
           # Execute the Jupyter notebook
 
-          jupyter nbconvert --to notebook --execute --inplace data_ingestion.ipynb
           jupyter nbconvert --to notebook --execute --inplace daily_updates.ipynb
 
 
