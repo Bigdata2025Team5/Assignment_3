@@ -31,6 +31,30 @@ The task is to build an incremental data pipeline in Snowflake using Snowpark fo
 3. AWS S3 bucket
 4. Snowpark
 5. Git Repositories
+   
+## 📂 Project Structure
+```
+├── .github
+   └── workflow
+    └── build_and_deploy.yml
+├── notebooks
+    └── daily_updates.ipynb  
+├── scripts
+   └── data_ingestion.sql
+   └── deploy_notebooks.sql
+   └── deploy_task_dag.py
+   └── environment.yml
+   └── teardown.sql 
+├── AiUseDisclosure
+├── NEW_SCRATCH(2).ipynb
+├── README.md
+├── deploy_snowpark_apps.py
+├── environment.yml
+├── requirements.txt
+├── script.py
+
+
+```
 
 
 
