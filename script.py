@@ -15,7 +15,7 @@ script_directory = os.path.dirname(os.path.abspath(__file__))  # Directory of th
 LOCAL_FILE_PATH = os.path.join(script_directory, "co2_daily.csv")  # CSV file name
 
 # AWS S3 Configuration
-S3_BUCKET_NAME = "bigdata2025assignment3"
+S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 S3_FILE_NAME = "co2_daily.csv"  # The file name in S3
 
 # NOAA CO2 Dataset URL
@@ -67,15 +67,18 @@ df = pd.DataFrame(data, columns=["date", "co2_ppm"])
 df.to_csv(LOCAL_FILE_PATH, index=False)
 logging.info(f"Data saved locally as {LOCAL_FILE_PATH}")
 
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_REGION = os.getenv("AWS_REGION")
 # Upload CSV to S3 using boto3's default session
 def upload_to_s3(local_file, bucket, s3_file):
     try:
         # Initialize the S3 client with default session (AWS credentials from environment)
         s3 = boto3.client(
             "s3",
-            aws_access_key_id="AKIAZPPGAAEKCP7YN7TM",  # Replace with your AWS credentials
-            aws_secret_access_key="7vERWy3Zl/Gec2xRcJuIJ8rCCyJip9PuJrWqQQCe",  # Replace with your AWS credentials
-            region_name="us-east-2",  # Change based on your AWS region
+         aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+    region_name=AWS_REGION, # Change based on your AWS region
         )
         # Upload the file to S3
         s3.upload_file(local_file, bucket, s3_file)
