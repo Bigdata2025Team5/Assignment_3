@@ -15,7 +15,7 @@ Last Updated: 6/11/2024
 
 
 CREATE OR REPLACE NOTEBOOK IDENTIFIER('"CO2_DB"."{{env}}_SCHEMA"."{{env}}_daily_updates"')
-    FROM '@"CO2_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/"{{branch}}"/notebooks/daily_updates/'
+    FROM '@"CO2_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/main/notebooks/'
     QUERY_WAREHOUSE = 'CO2_WH'
     MAIN_FILE = 'daily_updates.ipynb';
 
